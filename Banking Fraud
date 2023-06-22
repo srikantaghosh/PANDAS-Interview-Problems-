@@ -1,5 +1,36 @@
+/*
 How can we use Python to identify potential fraudulent transactions in a banking dataset?
+Given a banking dataset with information such as Customer_Id, City, Max_withdrawal limit, withdrawal amount, and age, 
+we need to write a Python query to add a new column indicating whether a customer is classified as a fraud or not based on their withdrawal behavior.
+Specifically, we want to identify cases where the withdrawal amount exceeds the maximum transaction limit set for each customer. If such an occurrence is detected, 
+the new column will be assigned a value indicating that the customer is a fraud.
+*/
 
-Given a banking dataset with information such as Customer_Id, City, Max_withdrawal limit, withdrawal amount, and age, we need to write a Python query to add a new column indicating whether a customer is classified as a fraud or not based on their withdrawal behavior.
+import pandas as pd
+import numpy as np
 
-Specifically, we want to identify cases where the withdrawal amount exceeds the maximum transaction limit set for each customer. If such an occurrence is detected, the new column will be assigned a value indicating that the customer is a fraud.
+def get_data(size=25):
+    df= pd.DataFrame()
+    
+    df['Id'] = np.random.randint(10,99,size)
+    df['City'] = np.random.choice(['CityA','CityB','Cityc'],size)
+    df['Max_Limit'] = np.random.randint(5000,9999,size)
+    df['Withdrawal_amnt'] = np.random.randint(1000,9999,size)
+    df['Age'] = np.random.randint(18,60,size)
+    
+    return df
+
+df = get_data()
+
+## Create a flag for fraud if withdrawal amnt is > max limit
+
+def isfraud(data):
+    if data['Withdrawal_amnt'] > data['Max_Limit']:
+        return 'Fraud'
+    else:
+        return 'Not Fraud'
+
+df['IsFraud'] = df.apply(isfraud, axis= 1)
+
+
+df.head()
