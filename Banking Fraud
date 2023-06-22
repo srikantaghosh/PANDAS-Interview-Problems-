@@ -1,0 +1,5 @@
+How can we use Python to identify potential fraudulent transactions in a banking dataset?
+
+Given a banking dataset with information such as Customer_Id, City, Max_withdrawal limit, withdrawal amount, and age, we need to write a Python query to add a new column indicating whether a customer is classified as a fraud or not based on their withdrawal behavior.
+
+Specifically, we want to identify cases where the withdrawal amount exceeds the maximum transaction limit set for each customer. If such an occurrence is detected, the new column will be assigned a value indicating that the customer is a fraud.
