@@ -1,4 +1,4 @@
-# PANDAS-Interview-Problems:
+# PANDAS-Problems:
 
 Welcome to the ultimate collection of interview questions focused on Pandas, the powerful data manipulation and analysis library in Python! 📚🐍
 
